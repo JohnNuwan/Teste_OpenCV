@@ -1,0 +1,162 @@
+ <!DOCTYPE html>
+  <html lang="fr">
+    <head>
+		<!-- Required meta tags -->
+			<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+			<meta charset="utf-8">
+			<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+		<!-- Bootstrap CSS -->
+			<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+
+		<!-- Link for all bootstrap icons which is not working with regular bootstrap CDN have to include it -->
+			<link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+		<!-- Bokeh includes-->
+			<link rel="stylesheet" href="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.css" type="text/css" />
+			<script type="text/javascript" src="http://cdn.pydata.org/bokeh/release/bokeh-0.12.13.min.js"></script>
+
+		<!-- Plotly	-->
+			<script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.6/d3.min.js"></script>
+			<link rel="shortcut icon" href="{{ url_for('static' , filename='img/favicon.ico') }}">
+
+		<script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+		
+
+
+		<title>Acemon-Tech</title>
+    </head>
+
+	<header>
+
+		<nav class="navbar navbar-expand-lg navbar-dark ">
+
+			<a class="navbar-brand navbar-dark" href="/">
+				<img src="{{ url_for('static' , filename='image/mainlogo.png') }}" style="max-width:60px; margin-top: -7px;">
+			</a>
+
+			<ul class="navbar-nav mr-auto mt-2 mt-lg-0">
+				<li class="nav-item active">
+				<a href="/dashboard/"><button type="button" class="btn btn-primary" aria-label="Left Align" style="margin-top: 5px; margin-bottom: 5px; height: 44px; margin-right: 15px">
+				<span class="glyphicon glyphicon-off"   ></span> Start Signal
+				</button></a>
+				</li>
+			</ul>
+			
+			<ul class="nav navbar-nav navbar-right">
+				<div style="margin-right: 10px; margin-left: 15px; margin-top: 5px; margin-bottom: 5px;"  class="container-fluid">
+					<h5>
+						<a href="/support-donate/"> <span class="glyphicon glyphicon-heart"></span> Support   </a>
+						<a role="presentation" data-toggle="modal" data-target="#exampleModal" href="login"><span class="glyphicon glyphicon-log-in"></span> Login   </a>
+					</h5>
+				</div>
+			</ul> 
+
+			<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Login</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+
+						<div class="modal-body">
+							<form >
+								<div class="form-group">
+
+									<label for="recipient-name" class="col-form-label">Username:</label>
+									<input type="text" class="form-control" id="recipient-name">
+
+									<label for="recipient-name" class="col-form-label">Password:</label>
+									<input type="text" class="form-control" id="recipient-name">
+								</div>
+								<div class="form-group">
+									<p>No account? <a href='/register'>Register here</a>.</p>
+								</div>
+							</form>
+						</div>
+
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Login</button>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<a role="presentation" data-toggle="modal" data-target="#register" href="#"><span class="glyphicon glyphicon-log-in"></span> SigIn   </a>
+
+			<div class="modal fade" id="register" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+				<div class="modal-dialog" role="document">
+					<div class="modal-content">
+						<div class="modal-header">
+							<h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+							<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+								<span aria-hidden="true">&times;</span>
+							</button>
+						</div>
+						<div class="modal-body">
+							<form >
+								<div class="form-group">
+									<label for="recipient-name" class="col-form-label">Username:</label>
+									<input type="text" id="username" name= "username" class="form-control" >
+
+									<label for="recipient-name" class="col-form-label">Email address:</label>
+									<input type="text" id="email" name= "email" class="form-control" >
+
+									<label for="recipient-name" class="col-form-label">Password:</label>
+									<input type="password" id="password" name= "password" class="form-control" >
+
+									<label for="recipient-name" class="col-form-label">Re-Type Password:</label>
+									<input type="password" id="repassword" name= "repassword" class="form-control" >
+								</div>
+
+								<div class="form-group">
+									<input id="accept_tos" name="accept_tos" type="checkbox" value="y">
+									<label for="accept_tos">I accept the <a href="/about/tos" target="blank">Terms of Service</a> and <a href="/about/privacy-policy" target="blank">Privacy Notice</a> (updated Sep 26, 2020)</label>
+								</div>
+							</form>
+						</div>	
+
+						<div class="modal-footer">
+							<button type="submit" class="btn btn-primary">Register</button>
+						</div>
+					</div>
+				</div>
+			</div>
+		</nav>
+
+		<nav class="navbar  navbar-dark bg-primary">
+			<a class="navbar-brand" href="/">Acceuil</a>
+			<!--<a class="navbar-brand" href="/chart">Chart</a>-->
+			<a class="navbar-brand" href="/hunt">Count people</a>
+			<a class="navbar-brand" href="/teste">Object Detection</a>
+			<!--<a class="navbar-brand" href="/ID_people">ID Detection</a>-->
+			
+
+			<form class="form-inline my-2 my-lg-0">
+				<input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+				<button type="button" class="btn btn-dark" type="submit">Search</button>
+    		</form>
+		</nav>
+	</header>
+      <body>
+
+
+
+      <div class="border-row" style="width:100%; margin-bottom: 15px;"></div>
+      <div class="container-fluid"  align="center" style="min-height:100%">
+        <a href="/dashboard/">
+          {% block body %}{% endblock%}
+
+
+      </div>
+       
+      <!-- Optional JavaScript -->
+      <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+      <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+      <script type="text/javascript" src="{{ url_for('static', filename='js/bootstrap.min.js')}}"></script>
+    </body>
+  </html>
